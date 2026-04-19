@@ -14,9 +14,8 @@ const Header = () => {
         </div>
         
         <nav className="nav-desktop">
-          <a href="/#experiencias">Experiencias</a>
           <a href="/#filosofia">Filosofía</a>
-          <a href="/#destinos">Destinos</a>
+          <a href="/#experiencias">Experiencias</a>
           <Link to="/blog">Blog</Link>
         </nav>
         

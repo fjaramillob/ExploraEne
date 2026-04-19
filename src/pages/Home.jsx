@@ -3,6 +3,7 @@ import Hero from '../components/Hero';
 import Philosophy from '../components/Philosophy';
 import Experiences from '../components/Experiences';
 import SocialProof from '../components/SocialProof';
+import BlogSection from '../components/BlogSection';
 import CTA from '../components/CTA';
 
 const Home = () => {
@@ -12,6 +13,7 @@ const Home = () => {
       <Philosophy />
       <Experiences />
       <SocialProof />
+      <BlogSection />
       <CTA />
     </>
   );
