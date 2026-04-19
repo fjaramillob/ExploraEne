@@ -1,11 +1,26 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 import logoImg from '../assets/LOGOTIPO EXPLORAENE_LOGOTIPO COLOR.png';
 
 const Header = () => {
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
-    <header className="header glass">
+    <header className={`header ${isScrolled ? 'glass' : 'transparent'}`}>
       <div className="container header-container">
         <div className="logo">
           <Link to="/">
@@ -14,8 +29,8 @@ const Header = () => {
         </div>
         
         <nav className="nav-desktop">
-          <a href="/#filosofia">Filosofía</a>
           <a href="/#experiencias">Experiencias</a>
+          <a href="/#filosofia">Filosofía</a>
           <Link to="/blog">Blog</Link>
         </nav>
         
@@ -40,7 +55,19 @@ const Header = () => {
           height: 110px;
           display: flex;
           align-items: center;
-          transition: height 0.3s ease;
+          transition: height 0.3s ease, background 0.3s ease, backdrop-filter 0.3s ease, border-bottom 0.3s ease;
+        }
+
+        .header.transparent {
+          background: transparent;
+          backdrop-filter: blur(0px);
+          border-bottom: 1px solid transparent;
+        }
+
+        .header.glass {
+          background: rgba(255, 255, 255, 0.85);
+          backdrop-filter: blur(12px);
+          border-bottom: 1px solid rgba(0, 0, 0, 0.05);
         }
         
         .header-container {

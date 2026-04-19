@@ -40,6 +40,10 @@ const SocialProof = () => {
           ))}
         </div>
         
+        <h2 className="section-title" style={{ textAlign: 'center', marginBottom: 'var(--spacing-xl)' }}>
+          Testimonios
+        </h2>
+
         <div className="testimonials-grid">
           {testimonials.map((test, index) => (
             <motion.div 
