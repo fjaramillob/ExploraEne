@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Menu, X, User } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import logoImg from '../assets/LOGOTIPO EXPLORAENE_LOGOTIPO COLOR.png';
 
 const Header = () => {
@@ -9,7 +9,7 @@ const Header = () => {
       <div className="container header-container">
         <div className="logo">
           <Link to="/">
-            <img src={logoImg} alt="Explora ENE" style={{ height: '45px', display: 'block' }} />
+            <img src={logoImg} alt="Explora ENE" style={{ height: '65px', display: 'block' }} />
           </Link>
         </div>
         
@@ -24,9 +24,7 @@ const Header = () => {
           <a href="https://wa.me/56987617739" target="_blank" rel="noopener noreferrer" className="button-primary">
             Reservar
           </a>
-          <div className="user-avatar">
-            <User size={20} />
-          </div>
+
           <button className="mobile-menu-toggle">
             <Menu size={24} />
           </button>
@@ -85,16 +83,7 @@ const Header = () => {
           gap: var(--spacing-md);
         }
         
-        .user-avatar {
-          width: 40px;
-          height: 40px;
-          border-radius: 50%;
-          background: #f0f0f0;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          color: var(--text-secondary);
-        }
+
         
         .mobile-menu-toggle {
           display: none;
@@ -107,9 +96,7 @@ const Header = () => {
           .mobile-menu-toggle {
             display: block;
           }
-          .header-actions .button-primary {
-            display: none;
-          }
+
         }
       `}</style>
     </header>
