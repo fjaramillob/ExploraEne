@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 import logoImg from '../assets/LOGOTIPO EXPLORAENE_LOGOTIPO COLOR.png';
+import logoWhiteImg from '../assets/LOGOTIPO EXPLORAENE_LOGOTIPO BLANCO.png';
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -30,7 +31,11 @@ const Header = () => {
       <div className="container header-container">
         <div className="logo">
           <Link to="/">
-            <img src={logoImg} alt="Explora ENE" className="logo-img" />
+            <img 
+              src={headerClass === 'transparent' ? logoWhiteImg : logoImg} 
+              alt="Explora ENE" 
+              className="logo-img" 
+            />
           </Link>
         </div>
         
