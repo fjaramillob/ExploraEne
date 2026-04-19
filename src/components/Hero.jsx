@@ -4,15 +4,15 @@ import heroImg from '../assets/hero_nature_1775951489814.png';
 
 const Hero = () => {
   return (
-    <section className="hero">
-      <div className="container">
-        <motion.div 
-          className="hero-card"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          style={{ backgroundImage: `linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.5)), url(${heroImg})` }}
-        >
+    <section className="hero" id="inicio">
+      <motion.div 
+        className="hero-background"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1.2 }}
+        style={{ backgroundImage: `linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.5)), url(${heroImg})` }}
+      >
+        <div className="container hero-container">
           <div className="hero-content">
             <motion.h1 
               initial={{ opacity: 0, y: 20 }}
@@ -37,34 +37,46 @@ const Hero = () => {
               <a href="#experiencias" className="button-primary">Explora Experiencias</a>
             </motion.div>
           </div>
-        </motion.div>
-      </div>
+        </div>
+      </motion.div>
 
       <style jsx>{`
         .hero {
-          padding-top: 120px;
-          padding-bottom: 60px;
-        }
-        
-        .hero-card {
-          height: 80vh;
+          position: relative;
+          width: 100%;
+          height: 100vh;
           min-height: 600px;
-          border-radius: var(--radius-xl);
+          margin-top: 0;
+        }
+
+        .hero-background {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
           background-size: cover;
           background-position: center;
           display: flex;
           align-items: center;
+        }
+        
+        .hero-container {
+          display: flex;
+          align-items: center;
           justify-content: center;
-          text-align: center;
-          color: white;
-          overflow: hidden;
-          position: relative;
+          height: 100%;
+          width: 100%;
         }
         
         .hero-content {
+          text-align: center;
+          color: white;
+          z-index: 2;
+          width: 100%;
           max-width: 850px;
           padding: 0 var(--spacing-lg);
-          z-index: 2;
+          margin-top: 80px; /* Offset to center considering the header */
         }
         
         h1 {
@@ -107,17 +119,19 @@ const Hero = () => {
         }
         
         @media (max-width: 768px) {
-          .hero-card {
-            height: 70vh;
-            border-radius: var(--radius-lg);
+          .hero {
+            height: 100vh;
           }
           .hero-btns {
             flex-direction: column;
             align-items: center;
           }
-          .hero-btns button {
+          .hero-btns button, .hero-btns a {
             width: 100%;
             max-width: 280px;
+          }
+          .hero-content {
+            margin-top: 60px;
           }
         }
       `}</style>

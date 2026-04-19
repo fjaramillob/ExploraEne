@@ -9,7 +9,7 @@ const Header = () => {
       <div className="container header-container">
         <div className="logo">
           <Link to="/">
-            <img src={logoImg} alt="Explora ENE" style={{ height: '65px', display: 'block' }} />
+            <img src={logoImg} alt="Explora ENE" className="logo-img" />
           </Link>
         </div>
         
@@ -37,9 +37,10 @@ const Header = () => {
           left: 0;
           width: 100%;
           z-index: 1000;
-          height: 80px;
+          height: 110px;
           display: flex;
           align-items: center;
+          transition: height 0.3s ease;
         }
         
         .header-container {
@@ -55,6 +56,12 @@ const Header = () => {
           font-weight: 800;
           letter-spacing: -0.05em;
           color: var(--text-primary);
+        }
+
+        .logo-img {
+          height: 95px;
+          display: block;
+          transition: height 0.3s ease;
         }
         
         .logo span {
@@ -82,20 +89,23 @@ const Header = () => {
           gap: var(--spacing-md);
         }
         
-
-        
         .mobile-menu-toggle {
           display: none;
         }
         
         @media (max-width: 768px) {
+          .header {
+            height: 80px;
+          }
+          .logo-img {
+            height: 65px;
+          }
           .nav-desktop {
             display: none;
           }
           .mobile-menu-toggle {
             display: block;
           }
-
         }
       `}</style>
     </header>
