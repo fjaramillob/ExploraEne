@@ -59,15 +59,26 @@ const Header = () => {
         }
 
         .header.transparent {
-          background: transparent;
-          backdrop-filter: blur(0px);
+          background-color: transparent;
+          backdrop-filter: none;
+          box-shadow: none;
           border-bottom: 1px solid transparent;
         }
 
+        .header.transparent .nav-desktop a {
+          color: rgba(255, 255, 255, 0.9);
+          text-shadow: 0 1px 3px rgba(0,0,0,0.3);
+        }
+
+        .header.transparent .nav-desktop a:hover {
+          color: white;
+        }
+
         .header.glass {
-          background: rgba(255, 255, 255, 0.85);
+          background: rgba(255, 255, 255, 0.9);
           backdrop-filter: blur(12px);
           border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+          box-shadow: 0 4px 20px rgba(0,0,0,0.03);
         }
         
         .header-container {
@@ -104,6 +115,7 @@ const Header = () => {
           font-size: 0.9rem;
           font-weight: 500;
           color: var(--text-secondary);
+          transition: color 0.3s ease;
         }
         
         .nav-desktop a:hover {

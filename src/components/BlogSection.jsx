@@ -42,7 +42,7 @@ const BlogSection = () => {
       <style jsx>{`
         .posts-grid-section {
           padding: 6rem 0;
-          background-color: var(--surface-color);
+          background-color: var(--bg-color);
         }
 
         .posts-grid {

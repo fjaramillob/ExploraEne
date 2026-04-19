@@ -2,6 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Instagram, Facebook, Linkedin, ArrowUp } from 'lucide-react';
 
+import logo from '../assets/LOGOTIPO EXPLORAENE_LOGOTIPO COLOR.png';
+
 const Footer = () => {
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -12,14 +14,14 @@ const Footer = () => {
       <div className="container">
         <div className="footer-top">
           <div className="footer-brand">
-            <div className="logo">
-              Explora <span>ENE</span>
-            </div>
+            <Link to="/" onClick={scrollToTop} className="footer-logo">
+              <img src={logo} alt="Explora Ene" className="logo-img" />
+            </Link>
             <p>Experiencias premium en el fin del mundo. Conectando lo humano con lo salvaje.</p>
             <div className="social-links">
-              <a href="#"><Instagram size={20} /></a>
-              <a href="#"><Facebook size={20} /></a>
-              <a href="#"><Linkedin size={20} /></a>
+              <a href="https://www.instagram.com/exploraene" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><Instagram size={20} /></a>
+              <a href="https://www.facebook.com/exploraene" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><Facebook size={20} /></a>
+              <a href="https://www.linkedin.com/company/exploraene" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><Linkedin size={20} /></a>
             </div>
           </div>
           
@@ -44,12 +46,6 @@ const Footer = () => {
               <a href="/#faq">FAQ</a>
               <a href="/#terminos">Términos</a>
               <a href="/#privacidad">Privacidad</a>
-            </div>
-            <div className="link-col">
-              <h4>Marca</h4>
-              <a href="/#diseño">Stitch Design</a>
-              <a href="/#kit">Brand Kit</a>
-              <a href="/#assets">Assets</a>
             </div>
           </div>
         </div>
@@ -112,7 +108,7 @@ const Footer = () => {
         
         .footer-links {
           display: grid;
-          grid-template-columns: repeat(4, 1fr);
+          grid-template-columns: repeat(3, 1fr);
           gap: var(--spacing-lg);
         }
         

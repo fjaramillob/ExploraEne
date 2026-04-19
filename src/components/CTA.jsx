@@ -13,16 +13,13 @@ const CTA = () => {
           transition={{ duration: 0.6 }}
         >
           <h2>¿Listo para comenzar tu transformación?</h2>
-          <p>Únete a nuestra comunidad y recibe noticias sobre nuestras próximas expediciones y consejos de movilidad consciente.</p>
+          <p>Conecta con nosotros directamente para resolver tus dudas y organizar tu próxima experiencia en la naturaleza.</p>
           
-          <form className="cta-form" onSubmit={(e) => e.preventDefault()}>
-            <input type="email" placeholder="Tu correo electrónico" required />
-            <button className="button-dark">Suscribirse</button>
-          </form>
-          
-          <span className="cta-alt">
-            o <a href="https://wa.me/56987617739" target="_blank" rel="noopener noreferrer">reserva una llamada de WhatsApp ahora</a>
-          </span>
+          <div className="cta-action">
+            <a href="https://wa.me/56987617739" target="_blank" rel="noopener noreferrer" className="button-dark">
+              Contáctanos por WhatsApp
+            </a>
+          </div>
         </motion.div>
       </div>
 
@@ -57,41 +54,18 @@ const CTA = () => {
           opacity: 0.9;
         }
         
-        .cta-form {
-          display: flex;
-          gap: var(--spacing-sm);
-          max-width: 500px;
-          margin: 0 auto var(--spacing-md);
-        }
-        
-        input {
-          flex-grow: 1;
-          padding: 1rem 1.5rem;
-          border-radius: var(--radius-pill);
-          border: 1px solid rgba(255, 255, 255, 0.2);
-          background: rgba(255, 255, 255, 0.1);
-          color: white;
-          font-family: inherit;
-          font-size: 1rem;
-          outline: none;
-          transition: var(--transition-smooth);
-        }
-        
-        input::placeholder {
-          color: rgba(255, 255, 255, 0.7);
-        }
-        
-        input:focus {
-          background: rgba(255, 255, 255, 0.2);
-          border-color: white;
+        .cta-action {
+          margin-top: var(--spacing-md);
         }
         
         .button-dark {
+          display: inline-block;
           background: var(--text-primary);
           color: white;
           padding: 1rem 2rem;
           border-radius: var(--radius-pill);
           font-weight: 700;
+          text-decoration: none;
           transition: var(--transition-smooth);
         }
         
@@ -100,21 +74,7 @@ const CTA = () => {
           background: #000;
         }
         
-        .cta-alt {
-          display: block;
-          font-size: 0.9rem;
-          opacity: 0.8;
-        }
-        
-        .cta-alt a {
-          text-decoration: underline;
-          font-weight: 600;
-        }
-        
         @media (max-width: 640px) {
-          .cta-form {
-            flex-direction: column;
-          }
           .cta-card {
             padding: var(--spacing-xl) var(--spacing-md);
           }
