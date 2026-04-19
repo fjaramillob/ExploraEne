@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 import logoImg from '../assets/LOGOTIPO EXPLORAENE_LOGOTIPO COLOR.png';
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
+  const location = useLocation();
+  const isHomePage = location.pathname === '/';
 
   useEffect(() => {
     const handleScroll = () => {
@@ -19,8 +21,12 @@ const Header = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const headerClass = isHomePage 
+    ? (isScrolled ? 'glass' : 'transparent') 
+    : 'glass';
+
   return (
-    <header className={`header ${isScrolled ? 'glass' : 'transparent'}`}>
+    <header className={`header ${headerClass}`}>
       <div className="container header-container">
         <div className="logo">
           <Link to="/">

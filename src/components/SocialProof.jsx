@@ -21,24 +21,9 @@ const SocialProof = () => {
     }
   ];
 
-  const signals = [
-    "Grupos reducidos (Máx 8)",
-    "Experiencias curadas",
-    "Guías especializados",
-    "Enfoque humano"
-  ];
-
   return (
     <section className="social-proof">
       <div className="container">
-        <div className="trust-signals">
-          {signals.map((signal, index) => (
-            <div key={index} className="signal">
-              <CheckCircle2 size={16} color="var(--accent-primary)" />
-              <span>{signal}</span>
-            </div>
-          ))}
-        </div>
         
         <h2 className="section-title" style={{ textAlign: 'center', marginBottom: 'var(--spacing-xl)' }}>
           Testimonios
@@ -71,23 +56,6 @@ const SocialProof = () => {
         .social-proof {
           background-color: var(--surface-color);
           border-top: 1px solid var(--border-color);
-        }
-        
-        .trust-signals {
-          display: flex;
-          justify-content: center;
-          gap: var(--spacing-xl);
-          flex-wrap: wrap;
-          margin-bottom: var(--spacing-xxl);
-        }
-        
-        .signal {
-          display: flex;
-          align-items: center;
-          gap: 0.5rem;
-          font-weight: 600;
-          font-size: 0.9rem;
-          color: var(--text-secondary);
         }
         
         .testimonials-grid {
