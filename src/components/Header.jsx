@@ -6,6 +6,7 @@ import logoWhiteImg from '../assets/LOGOTIPO EXPLORAENE_LOGOTIPO BLANCO.png';
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
   const isHomePage = location.pathname === '/';
 
@@ -26,11 +27,19 @@ const Header = () => {
     ? (isScrolled ? 'glass' : 'transparent') 
     : 'glass';
 
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
+
+  const closeMobileMenu = () => {
+    setIsMobileMenuOpen(false);
+  };
+
   return (
     <header className={`header ${headerClass}`}>
       <div className="container header-container">
         <div className="logo">
-          <Link to="/">
+          <Link to="/" onClick={closeMobileMenu}>
             <img 
               src={headerClass === 'transparent' ? logoWhiteImg : logoImg} 
               alt="Explora ENE" 
@@ -39,10 +48,10 @@ const Header = () => {
           </Link>
         </div>
         
-        <nav className="nav-desktop">
-          <a href="/#experiencias">Experiencias</a>
-          <a href="/#filosofia">Filosofía</a>
-          <Link to="/blog">Blog</Link>
+        <nav className={`nav-desktop ${isMobileMenuOpen ? 'mobile-open' : ''}`}>
+          <a href="/#experiencias" onClick={closeMobileMenu}>Experiencias</a>
+          <a href="/#filosofia" onClick={closeMobileMenu}>Filosofía</a>
+          <Link to="/blog" onClick={closeMobileMenu}>Blog</Link>
         </nav>
         
         <div className="header-actions">
@@ -50,8 +59,8 @@ const Header = () => {
             Reservar
           </a>
 
-          <button className="mobile-menu-toggle">
-            <Menu size={24} />
+          <button className="mobile-menu-toggle" onClick={toggleMobileMenu}>
+            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
       </div>
@@ -141,6 +150,18 @@ const Header = () => {
         
         .mobile-menu-toggle {
           display: none;
+          background: none;
+          border: none;
+          cursor: pointer;
+          color: var(--text-primary);
+          padding: 0;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+
+        .header.transparent .mobile-menu-toggle {
+          color: rgba(255, 255, 255, 0.9);
         }
         
         @media (max-width: 768px) {
@@ -153,8 +174,44 @@ const Header = () => {
           .nav-desktop {
             display: none;
           }
+          .nav-desktop.mobile-open {
+            display: flex;
+            flex-direction: column;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(12px);
+            padding: var(--spacing-lg) var(--spacing-md);
+            gap: var(--spacing-md);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+          }
+          
+          .nav-desktop.mobile-open a {
+            font-size: 1.1rem;
+            padding: var(--spacing-sm) 0;
+            text-align: center;
+            color: var(--text-primary) !important;
+            text-shadow: none !important;
+            width: 100%;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+          }
+
+          .nav-desktop.mobile-open a:last-child {
+            border-bottom: none;
+          }
+
           .mobile-menu-toggle {
-            display: block;
+            display: flex;
+          }
+          .header-actions {
+            gap: var(--spacing-sm);
+          }
+          .button-primary {
+            padding: 0.5rem 1rem;
+            font-size: 0.85rem;
           }
         }
       `}</style>

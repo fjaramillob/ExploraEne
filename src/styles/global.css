@@ -77,6 +77,13 @@ button {
 /* Sections */
 section {
   padding: var(--spacing-xxl) 0;
+  scroll-margin-top: 110px; /* Offset for fixed header */
+}
+
+@media (max-width: 768px) {
+  section {
+    scroll-margin-top: 80px;
+  }
 }
 
 .section-title {
